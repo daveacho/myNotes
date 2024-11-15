@@ -4,7 +4,7 @@ import AppHeader from "../UI/Header";
 import NoteContainer from "../components/NoteContainer";
 import Filter from "../components/filter";
 
-const API_URL = "http://127.0.0.1:8000";
+// const API_URL = "http://127.0.0.1:8000";
 
 export default function AppLayout () {
 
@@ -25,7 +25,7 @@ export default function AppLayout () {
  // Function to fetch notes based on search query
  async function searchNote() {
   try {
-    const response = await fetch(`${API_URL}/notes-search/?search=${searchNotes}`);
+    const response = await fetch(`/notes-search/?search=${searchNotes}`);
     if (!response.ok) throw new Error("Failed to fetch notes");
     const data = await response.json();
     setNotes(data);
@@ -43,7 +43,7 @@ useEffect(() => {
 useEffect(() => {
   const get_notes = async () => {
   try {
-      const response = await fetch(`${API_URL}/notes/`);
+      const response = await fetch(`/notes/`);
       const data = await response.json();
       setNotes(data);
   } catch (error) {

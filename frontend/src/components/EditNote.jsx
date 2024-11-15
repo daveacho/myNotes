@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
-const API_URL = "http://127.0.0.1:8000/notes";
+const API_URL = "/notes";
 
 export default function UpdateNote() {
   const [title, setTitle] = useState("");

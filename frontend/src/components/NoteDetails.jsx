@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import {  Description,Dialog, DialogPanel, DialogTitle } from "@headlessui/react"; // Import Dialog component from Headless UI
 
-const API_URL = "http://127.0.0.1:8000/notes";
+const API_URL = "/notes";
 
 export default function NoteDetails() {
     const { slug } = useParams();
