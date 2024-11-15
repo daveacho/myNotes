@@ -4,7 +4,7 @@ import AppHeader from "../UI/Header";
 import NoteContainer from "../components/NoteContainer";
 import Filter from "../components/filter";
 
-// const API_URL = "http://127.0.0.1:8000";
+const API_URL = "http://18.170.33.112:8000";
 
 export default function AppLayout () {
 
