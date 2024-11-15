@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .textarea {
+    @apply w-full border border-stone-950 px-4 py-2 text-sm w-96 h-20 rounded-md
+    placeholder:text-stone-400 md:px-6 md:p-4 focus:outline-none;
+  }
+  .input {
+    @apply rounded-full border border-stone-600 px-4 py-2 text-sm focus:outline-none grow
+     placeholder:text-stone-400 md:px-6 md:p-4;
+  }
+}
+
+.homepage {
+  @apply bg-cover bg-center h-screen px-10 py-8 grid grid-rows-[auto_1fr_auto] m-5; 
+  background-image: linear-gradient(rgba(36, 42, 46, 0.8), rgba(36, 42, 46, 0.8)), url('img1.png');
+}
+
+.section {
+  @apply flex flex-col gap-6 items-center justify-center;
+}
+
+.page-color {
+  @apply text-slate-100;
+}
+
+.homepage-body-link {
+  @apply  text-green-300 uppercase;
+}
+
+.custom-bg-others {
+  @apply h-screen px-10 py-5 grid grid-rows-[auto_1fr_auto] m-5;; 
+  background-image: linear-gradient(rgba(36, 42, 46, 0.8), rgba(36, 42, 46, 0.8));
+}
+
+.pagenav {
+  @apply flex justify-between items-center; 
+}
+
+.pagenav ul {
+  @apply flex justify-between items-center gap-8 list-none pr-16 ;
+}
+
+.login-section {
+  @apply  bg-slate-400 flex flex-col items-center justify-center gap-8;
+}
+.login-form-row {
+  @apply flex flex-col gap-2 items-center justify-between;
+}
+
+.applayout {
+  @apply grid grid-rows-[auto_auto_1fr_auto] max-h-full px-10 py-8 m-5;
+  background-image: linear-gradient(rgba(36, 42, 46, 0.8), rgba(36, 42, 46, 0.8));
+}
+.appheader-nav {
+  @apply flex justify-between mb-8;
+}
+
+.notes {
+  @apply shadow-lg w-80 text-white bg-neutral-700 p-8 rounded-md;
+}
+
+.notecontainer {
+  @apply grid grid-cols-1 gap-y-5 mb-8 sm:grid-cols-1 md:grid-cols-2 md:gap-1 lg:grid-cols-3 lg:gap-2;
+}
+.filter {
+  @apply flex;
+}
+
+.notedetailscontainer {
+  @apply h-screen flex flex-col items-center justify-center m-5;
+  background-image: linear-gradient(rgba(36, 42, 46, 0.8), rgba(36, 42, 46, 0.8));
+}
+
+.addnotescontainer {
+  @apply h-screen flex items-center justify-center m-5;
+  background-image: linear-gradient(rgba(36, 42, 46, 0.8), rgba(36, 42, 46, 0.8));
+}

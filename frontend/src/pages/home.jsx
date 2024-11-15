@@ -1,8 +1,0 @@
-import Login from "../components/login";
-
-export default function Home () {
-    return <div>
-              <Login />
-              <h1>Homepage</h1>
-           </div>
-}

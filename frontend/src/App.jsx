@@ -1,99 +1,32 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import AddNote from "./pages/addnotes";
-import NotePage from "./pages/notepage";
-import Home from "./pages/home";
-import Applayout from "./pages/applayout";
-import Error404 from "./components/error";
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import HomePage from "./pages/HomePage";
+import Login from "./pages/Login";
+import AppLayout from './pages/AppLayout';
+import PageNotFound from './pages/Page Not Found';
+import AddNotes from './components/AddNote';
+import NoteDetails from './components/NoteDetails';
+import UpdateNote from './components/EditNote';
 
-// Define routes
-const router = createBrowserRouter([  
-  {
-    path: "/",
-    element: <Home />,
-  },
-  {
-    path: "/notes",
-    element: <Applayout />,
-    loader: async () => {
-      try {
-        const res = await fetch("http://127.0.0.1:8000/notes/");
-        if (!res.ok) throw new Error("Failed to fetch notes");
-        const data = await res.json();
-        console.log("Data fetched successfully:", data);
-        return data;
-      } catch (error) {
-        console.error(error);
-        throw error; // Throw error to be caught by any error elements (optional)
-      }
-    },
-  },
-  {
-    path: "/notes/:slug",
-    element: <NotePage />,
-    loader: async ({ params }) => {
-      const { slug } = params;
-      try {
-        const res = await fetch(`http://127.0.0.1:8000/notes/${slug}`);
-        if (!res.ok) throw new Error("Failed to fetch note details");
-        const data = await res.json();
-        console.log("Data fetched successfully:", data);
-        return data;
-      } catch (error) {
-        console.error(error);
-        throw error;
-      }
-    },
-  },
-  {
-    path: "/add-notes",
-    element: <AddNote />,
-  },
-  {
-    path: "*",
-    element: <Error404 />,
-  },
-]);
+export default function App () {
+  return <BrowserRouter>
+            <Routes>
+              <Route path='/' element={<HomePage />} />
+              <Route path='about' element={<About/>} />
+              <Route path='contact' element={<Contact/>} />
+              <Route path='login' element={<Login />} />
+              <Route path='notes' element={<AppLayout />} />
+              <Route path='notes/:slug' element={<NoteDetails />} />
+              <Route path='add-note' element={<AddNotes />} />
+              <Route path='notes/:slug/edit' element={<UpdateNote />} />
+              <Route path='*' element={<PageNotFound />} />
+            </Routes>
+         </BrowserRouter>
 
-export default function App() {
-  return <RouterProvider router={router} />;
 }
 
-
-// import { createBrowserRouter, RouterProvider, } from "react-router-dom"
-// import AddNote from "./pages/addnotes"
-// import NotePage from "./pages/notepage"
-// import Home from "./pages/home"
-// import Applayout from "./pages/applayout"
-// import Error404 from "./components/error"
-
-
-
-// // Define routes
-// const router = createBrowserRouter([  
-//   {path: "/", element: <Home />},
-//   {path: "/notes", element:  <Applayout />, loader:  async () => {
-//     const res = await fetch(`http://127.0.0.1:8000/notes/`);
-//     const data = res.json()
-//     console.log("Data fetched successfully:", data); // Log fetched data
-//     return data
-//   },},
-//   {path: "/notes/:noteid", element: <NotePage />},
-//   {path: "/add-notes", element: <AddNote />}, 
-//   { path: '*', element: <Error404 /> },
-// ])
-
-// export default function App () {
-//   return <RouterProvider router={router} />
-// }
-
-//   { path: "/", element: <Home /> },
-//   {
-//     path: "/notes",
-//     element: <Applayout />,
-//     children: [
-//       { path: "notes-detail", element: <NotePage /> },
-//       { path: "add-notes", element: <AddNote /> },
-//     ],
-//   },
-// ]);
-
+//to use params with react router, we do it in three steps
+//1. we create a route
+//2. link to that route
+//3.in that route we read the state from the url
